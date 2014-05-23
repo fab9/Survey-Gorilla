@@ -3,12 +3,10 @@ get '/' do
   erb :index
 end
 
-post '/' do
-  if User.authenticate(params[:username], params[:password])
-   @user = User.find_by_username(params[:username])
+post '/sessions/new' do
+  if User.authenticate(params[:email], params[:password])
+    @user = User.find_by_email(params[:email])
     session[:user_id] = @user.id  #creates session
-    redirect "/user/#{current_user.id}"
-  else
-    redirect '/'
   end
+  redirect '/'
 end
