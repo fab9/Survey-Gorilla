@@ -66,3 +66,6 @@ post '/survey/:id/vote' do
 
   redirect '/user/profile'
 end
+
+#================= Results page
+
