@@ -1,3 +1,9 @@
+
+
+
+
+
+
 # Survey Gorilla
 
 ## Learning Competencies
@@ -23,8 +29,8 @@ in a survey.
 ## Releases
 
 ### Release 0: Design
-Spend a solid design period with your team developing your design and team approach.  
- 
+Spend a solid design period with your team developing your design and team approach.
+
 #### Wireframes
 
 Create a solid set of wireframes of the pages/ states of pages of your application.  Use a tool like [Balsamiq][balsamiq] or sketch them on paper.
@@ -37,7 +43,7 @@ Create a solid set of user stories for your application.  Use your wireframes to
 
 You have two types of users in this application, survey creators and survey takers; build stories for both.
 
-List your user stories in Trello.  
+List your user stories in Trello.
 
 #### MVP
 Decide what your MVP will be.  Make sure you have wireframes and user stories for all parts of your MVP.
@@ -69,7 +75,7 @@ Each of these should correspond to a single table in your database and a single 
 
 Users need to be signed in to create a survey and vote in a survey.
 
-Make sure your models support all of your user stories. 
+Make sure your models support all of your user stories.
 
 ### Release 2: Survey Creation
 
