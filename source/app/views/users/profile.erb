@@ -4,7 +4,7 @@
 <h2>Surveys Created</h2>
   <ul>
   <% @surveys_created.each do |survey| %>
-    <li><a href="/survey/<%= survey.id  %>"><%= survey.name %></a></li>
+    <li><a href="/survey/<%= survey.id  %>/result"><%= survey.name %></a></li>
   <% end %>
   </ul>
 

@@ -68,4 +68,8 @@ post '/survey/:id/vote' do
 end
 
 #================= Results page
-
+get '/survey/:id/result' do
+  @survey = Survey.find_by_id(params[:id])
+  @questions = @survey.questions
+  erb :"surveys/result"
+end

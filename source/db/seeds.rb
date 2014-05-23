@@ -25,7 +25,7 @@ end
 
 Question.all.each do |question|
   4.times do
-    question.choices << Choice.create({text: Faker::Lorem.sentence})
+    question.choices << Choice.create({text: Faker::Lorem.word})
   end
 end
 
