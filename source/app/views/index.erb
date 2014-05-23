@@ -1,20 +1,10 @@
-<div id="sign_in">
-  <h1>Sign in</h1>
-  <form method="post" action="/sessions/new">
-    <div class="username">
-      <label>email</label></br>
-      <input type="text" name="email">
-    </div>
-    <div class="password">
-      <label>password</label></br>
-      <input type="password" name="password">
-    </div>
-    <div class="submit">
-      <input type="submit" value="Submit" class="submit_button">
-    </div>
-      <h2>or</h2>
-      <div id="create">
-        <a href="/user/new">Create Account</a>
-      </div>
-  </form>
-</div>
+<% @surveys.each do |survey| %>
+<p>
+  <% if current_user %>
+    <a href="/survey/<%= survey.id %>"><%= survey.name %></a>
+  <% else %>
+    <%= survey.name %>
+  <%end%>
+</p>
+
+<%end%>
