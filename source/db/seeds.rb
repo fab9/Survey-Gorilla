@@ -19,7 +19,7 @@ end
 
 Survey.all.each do |survey|
   5.times do
-    survey.questions << Question.create({text: Faker::Lorem.sentence + "?"})
+    survey.questions << Question.create({text: Faker::Lorem.sentence[0..-2] + "?"})
   end
 end
 
