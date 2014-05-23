@@ -1,7 +1,7 @@
 require 'faker'
 
 Survey.destroy_all
-User.destory_all
+User.destroy_all
 Question.destroy_all
 Participation.destroy_all
 Choice.destroy_all

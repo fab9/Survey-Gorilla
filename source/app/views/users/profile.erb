@@ -1,0 +1,17 @@
+<a href="/survey/username">My Surveys</a>
+<a href="/surveys/new">Create New Survey</a>
+
+<h2>Surveys Created</h2>
+  <ul>
+  <% @surveys_created.each do |survey| %>
+    <li><a href="/survey/<%= survey.id  %>"><%= @surveys_created.name %></a></li>
+  <% end %>
+  </ul>
+
+
+  <h2>Surveys Taken</h2>
+  <ul>
+  <% @surveys_taken.each do |survey| %>
+    <li><a href="/survey/<%= survey.id  %> "><%= @surveys_taken.name %></a></li>
+  <% end %>
+  </ul>
