@@ -4,9 +4,8 @@
   <label>survey name
     <input type="text" name="survey_name">
   </label>
-  <div id="question">
-    <input type="text" name="question[question]">
-    <input type="text" name="question[choice]"
-  </div>
+  <%= erb :"partials/_question" %>
+
+  <a href="#" id="add_question">add question</a>
 </form>
 
