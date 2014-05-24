@@ -15,9 +15,9 @@ post '/sessions/new' do
 end
 
 get '/user/profile' do
-    @surveys_created = current_user.created_surveys
-    @surveys_taken = current_user.taken_surveys
-    erb :'users/profile'
+  @surveys_created = current_user.created_surveys
+  @surveys_taken = current_user.taken_surveys
+  erb :'users/profile'
 end
 
 #================= Show survey
@@ -37,7 +37,7 @@ post '/survey/new' do
     end
   end
 
-  redirect :"/user/profile"
+  redirect "/user/profile"
 end
 
 delete '/logout' do
@@ -50,18 +50,19 @@ get '/signup' do
 end
 
 post '/users/new' do
-  user = User.new(params[:user])
-  if user.save
-    session[:user_id] = user.id
-    redirect "/user/profile"
-  end
+  user = User.create(params[:user])
+  session[:user_id] = user.id
+  redirect "/user/profile"
 end
 
 get '/survey/:id' do
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
-
-  erb :survey
+  if current_user.taken_surveys.include?(@survey)
+    redirect 'user/profile'
+  else
+    erb :survey
+  end
 end
 
 post '/survey/:id/vote' do
@@ -69,7 +70,6 @@ post '/survey/:id/vote' do
   params[:response].each do |index, choice_id|
     Response.create({choice_id: choice_id, participation_id: participation.id})
   end
-
   redirect '/user/profile'
 end
 
