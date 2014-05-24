@@ -1,9 +1,22 @@
 <div id="question">
   <label id="question_field">question
-    <input type="text" name="question[0][question]">
+    <input type="text" name="question[question]">
   </label>
 
   <%= erb :"partials/_choice" %>
 
   <a href="#" id="add_choice">add choice</a>
 </div>
+
+<form method="post" action="/questions/new" id="submit_question">
+  <label id="question_field">question
+    <input type="text" name="question[question]">
+  </label>
+  <div id="choice">
+    <label>choice
+      <input type="text" name="question[choice]">
+    </label>
+  </div>
+  <input type="submit" value="submit question">
+  <a href="#" id="add_choice">add choice</a>
+</form> 
