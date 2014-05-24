@@ -1,9 +1,6 @@
 <h3>Create new survey</h3>
-<%#if @survey%>
-  <%=@survey%>
-<%#end%>
 
-<form method="post" action="/survey/new" id="survey">
+<form method="post" action="/surveys/new" id="survey">
   <label>survey name
     <input type="text" name="survey_name">
   </label>

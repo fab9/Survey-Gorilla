@@ -4,18 +4,18 @@ get '/surveys/new' do
 end
 
 post '/surveys/new' do
-  @survey = Survey.create(
-    name: params[:survey_name],
-    creator_id: current_user.id)
+  @survey = Survey.create(name: params[:survey_name], creator_id: current_user.id)
 
-    erb :'questions/new'
+  #@survey.questions << quesiton
+
+  erb :'surveys/new'
 end
 
-get '/survey/:id' do
+get '/surveys/:id' do
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
 
-  erb :survey
+  erb :'surveys/new'
 end
 
 post '/surveys/:id/vote' do

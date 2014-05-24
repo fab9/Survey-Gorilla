@@ -1,14 +1,4 @@
-<div id="question">
-  <label id="question_field">question
-    <input type="text" name="question[question]">
-  </label>
-
-  <%= erb :"partials/_choice" %>
-
-  <a href="#" id="add_choice">add choice</a>
-</div>
-
-<form method="post" action="/questions/new" id="submit_question">
+<form method="post" action="/surveys/new" id="submit_question">
   <label id="question_field">question
     <input type="text" name="question[question]">
   </label>
