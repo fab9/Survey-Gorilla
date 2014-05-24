@@ -66,3 +66,10 @@ post '/survey/:id/vote' do
 
   redirect '/user/profile'
 end
+
+#================= Results page
+get '/survey/:id/result' do
+  @survey = Survey.find_by_id(params[:id])
+  @questions = @survey.questions
+  erb :"surveys/result"
+end
