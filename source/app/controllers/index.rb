@@ -1,4 +1,4 @@
-ontrget '/' do
+get '/' do
   # Look in app/views/index.erb
   @surveys = Survey.all
   erb :index
@@ -22,7 +22,6 @@ end
 
 #================= Create survey
 get '/surveys/new' do
-<<<<<<< HEAD
   erb :'surveys/new'
 end
 
