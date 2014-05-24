@@ -12,6 +12,6 @@
   <h2>Surveys Taken</h2>
   <ul>
   <% @surveys_taken.each do |survey| %>
-    <li><a href="/survey/<%= survey.id  %> "><%= survey.name %></a></li>
+    <li><%= survey.name %></li>
   <% end %>
   </ul>
