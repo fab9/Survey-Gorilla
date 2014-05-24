@@ -26,12 +26,13 @@ get '/surveys/new' do
     erb :'surveys/new'
 end
 
-post '/surveys/new' do
-  @survey = Survey.create(
-    name: params[:survey_name],
-    creator_id: current_user.id)
+post '/survey/new' do
+  params.inspect
+  # @survey = Survey.create(
+  #   name: params[:survey_name],
+  #   creator_id: current_user.id)
 
-    redirect :'users/profile'
+  #   redirect :'users/profile'
 end
 
 delete '/logout' do
