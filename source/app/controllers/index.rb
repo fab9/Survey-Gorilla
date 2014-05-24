@@ -1,4 +1,4 @@
-get '/' do
+ontrget '/' do
   # Look in app/views/index.erb
   @surveys = Survey.all
   erb :index
@@ -20,8 +20,9 @@ get '/user/profile' do
     erb :'users/profile'
 end
 
-#================= Show survey
+#================= Create survey
 get '/surveys/new' do
+<<<<<<< HEAD
   erb :'surveys/new'
 end
 
@@ -57,6 +58,7 @@ post '/users/new' do
   end
 end
 
+#================= Show survey
 get '/survey/:id' do
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
