@@ -20,7 +20,7 @@ get '/user/profile' do
     erb :'users/profile'
 end
 
-#================= Create survey
+#================= Show survey
 get '/surveys/new' do
   erb :'surveys/new'
 end
@@ -57,7 +57,6 @@ post '/users/new' do
   end
 end
 
-#================= Show survey
 get '/survey/:id' do
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
