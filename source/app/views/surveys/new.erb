@@ -1,14 +1,16 @@
-<h3>Create new survey</h3>
+<h3>Create New Survey</h3>
 
-<form method="post" action="/survey/new">
-  <label>survey name
+<form method="post" action="/survey/new" entype="multipart/form-data">
+  <label>Survey Name:
     <input type="text" name="survey_name">
   </label>
-  <label>image
-    <input type="text" name="image">
+  <br>
+  <label>Image:
+    <input type="file" name="image_url" accept="image/*">
   </label>
+  <br>
   <%= erb :"partials/_question" %>
 
-  <a href="#" id="add_question">add question</a>
+  <a href="#" id="add_question">Add Question</a>
 </form>
 

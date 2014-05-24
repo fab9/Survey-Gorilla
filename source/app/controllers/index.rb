@@ -20,9 +20,8 @@ get '/user/profile' do
     erb :'users/profile'
 end
 
-#================= Show survey
+#================= Create survey
 get '/surveys/new' do
-
     erb :'surveys/new'
 end
 
@@ -30,8 +29,11 @@ post '/surveys/new' do
   @survey = Survey.create(
     name: params[:survey_name],
     creator_id: current_user.id)
-
-    redirect :'users/profile'
+  if user.save
+    redirect to '/users/profile'
+  else
+    erb :'surveys/new'
+  end
 end
 
 delete '/logout' do
@@ -51,6 +53,7 @@ post '/users/new' do
   end
 end
 
+#================= Show survey
 get '/survey/:id' do
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
