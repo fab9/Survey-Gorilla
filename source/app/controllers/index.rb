@@ -22,17 +22,22 @@ end
 
 #================= Show survey
 get '/surveys/new' do
-
-    erb :'surveys/new'
+  erb :'surveys/new'
 end
 
 post '/survey/new' do
   params.inspect
-  # @survey = Survey.create(
-  #   name: params[:survey_name],
-  #   creator_id: current_user.id)
+  survey = Survey.create({name: params[:survey_name], image_url: params[:image]})
+  current_user.created_surveys << survey
+  params[:question].each do |index, question_text|
+    survey.questions << Question.create({text: question_text})
+    question = survey.questions.last
+    params[:choice][index].each do |index, choice_text|
+      question.choices << Choice.create({text: choice_text})
+    end
+  end
 
-  #   redirect :'users/profile'
+  redirect :"/user/profile"
 end
 
 delete '/logout' do
@@ -45,9 +50,9 @@ get '/signup' do
 end
 
 post '/users/new' do
-  @user = User.new(params[:user])
-  if @user.save
-    session[:user_id] = @user.id
+  user = User.new(params[:user])
+  if user.save
+    session[:user_id] = user.id
     redirect "/user/profile"
   end
 end
