@@ -1,4 +1,4 @@
-class CreateUsers < ActiveRecord::Migration
+https://www.youtube.com/watch?v=dQw4w9WgXcQclass CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.string :name

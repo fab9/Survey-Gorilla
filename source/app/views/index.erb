@@ -1,6 +1,6 @@
 <% @surveys.each do |survey| %>
 <p>
-  <% if current_user %>
+  <% if current_user && !current_user.taken_surveys.include?(survey) %>
     <a href="/survey/<%= survey.id %>"><%= survey.name %></a>
   <% else %>
     <%= survey.name %>

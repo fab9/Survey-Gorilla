@@ -59,7 +59,7 @@ get '/survey/:id' do
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
   if current_user.taken_surveys.include?(@survey)
-    redirect 'user/profile'
+    redirect 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
   else
     erb :survey
   end
