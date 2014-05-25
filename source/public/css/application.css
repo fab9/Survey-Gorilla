@@ -1,9 +1,72 @@
+html { 
+/*  background: url(img/escheresque_ste.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  background: url(img/pw_maze_white.png) repeat center center fixed;
+  color: #1D222B;
+  font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+}
+
+.login {
+  padding: 5px 20px;
+}
+
 .container {
   margin: 20px auto;
   width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  padding: 20px 20px 20px 20px;
+  border: 1px solid #181C24;
+  background: white;
+  overflow: hidden;
+  /*background: url(img/transpBlack75.png) repeat center center fixe*/d; 
 }
 th {
   text-align: left;
+}
+
+#email {
+  width: 176px;
+}
+
+#login_submit {
+  margin-left: 157px;
+}
+
+.submit_button {
+  border: 0;
+  padding-top: 5px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #fdf5eb;
+  background: #394354;
+}
+
+a {
+  color: #394354;
+}
+
+a:hover {
+  color: #516078;
+}
+
+a:visited {
+  color: #394354;
+}
+
+#survey {
+  display: block;
+/*  margin: 20px;
+  padding-top: 20px;
+  margin-top: 20px;
+*/
+ 
+}
+
+#survey_display {
+/*  text-align: center;*/
+  margin-top: 20px;
+  overflow: hidden;
+  line-height: 150%;
 }

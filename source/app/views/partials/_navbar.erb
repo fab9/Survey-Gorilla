@@ -1,28 +1,5 @@
 <div id="sign_in">
-  <%if current_user %>
-    <form name='logout' method='post' action='/logout'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Logout'>
-    </form>
-    <a href="/user/profile">Profile</a>
-  <% else %>
-    <form method="post" action="/sessions/new">
-      <div class="username">
-        <label>email</label>
-        <input type="text" name="email">
-      </div>
-      <div class="password">
-        <label>password</label>
-        <input type="password" name="password">
-      </div>
-      <div class="submit">
-        <input type="submit" value="Submit" class="submit_button">
-      </div>
-        <div id="create">
-          <a href="/signup">Create Account</a>
-        </div>
-    </form>
-  <% end %>
+
   <a href="/">Home</a>
 </div>
 
