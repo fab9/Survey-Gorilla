@@ -7,14 +7,12 @@ Participation.destroy_all
 Choice.destroy_all
 Response.destroy_all
 
-20.times do
+150.times do
   User.create({name: Faker::Name.name, email: Faker::Internet.email, password: "password"})
 end
 
 User.all.each do |user|
-  3.times do
-    user.created_surveys << Survey.create({name: Faker::Address.country})
-  end
+  user.created_surveys << Survey.create({name: Faker::Address.country})
 end
 
 Survey.all.each do |survey|
@@ -23,17 +21,30 @@ Survey.all.each do |survey|
   end
 end
 
+
 Question.all.each do |question|
   4.times do
     question.choices << Choice.create({text: Faker::Lorem.word})
   end
 end
 
+# Survey.first.questions.each do |question|
+#   question.choices.sample.responses <<
+
 User.all.each do |user|
-  survey = Survey.all.sample
-  participation = Participation.create!({taker_id: user.id, survey_id: survey.id})
+  survey = (Survey.all - [Survey.first]).sample
+  participation = Participation.create({taker_id: user.id, survey_id: survey.id})
   survey.questions.each do |question|
     choice = question.choices.sample
-    Response.create!({participation_id: participation.id, choice_id: choice.id})
+    Response.create({participation_id: participation.id, choice_id: choice.id})
+  end
+end
+
+User.all.each do |user|
+  survey = Survey.first
+  participation = Participation.create({taker_id: user.id, survey_id: survey.id})
+  survey.questions.each do |question|
+    choice = question.choices.sample
+    Response.create({participation_id: participation.id, choice_id: choice.id})
   end
 end
