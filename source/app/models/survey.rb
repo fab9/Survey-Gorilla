@@ -1,5 +1,5 @@
 class Survey < ActiveRecord::Base
-  # Remember to create a migration!
+  validates :text, presence: true
   belongs_to :creator, class_name: "User"
   has_many :participations
   has_many :takers, through: :participations
