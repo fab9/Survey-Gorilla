@@ -2,7 +2,7 @@
   <%if current_user %>
     <form name='logout' method='post' action='/logout'>
       <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Logout'>
+      <input type='submit' value='Logout' class="submit_button">
     </form>
     <a href="/user/profile">Profile</a>
   <% else %>
