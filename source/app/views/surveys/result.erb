@@ -1,1 +1,30 @@
-<script src="/javascripts/showreel.js"></script>
+<meta charset=utf-8 />
+  <script src="http://d3js.org/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
+<style type="text/css">
+  .d3{
+    background-color: lightgreen;
+    margin: 5px;
+    font-size: 16px;
+    color: black;
+    padding: 10px;
+  }
+</style>
+<% display_data = [] %>
+<% @questions.each do |question| %>
+<h4> <%= question.text %> </h4>
+
+  <% question.choices.each do |choice| %>
+  <% display_percentage = (choice.responses.length.to_f * 100 / @survey.participations.length).round(1) %>
+  <% display_data << display_percentage.to_i * 10 %>
+    <div class="d3"><%= choice.text %> - <%= display_percentage %>%</div>
+  <%end%>
+<%end%>
+
+<script type="text/javascript">
+  d3.selectAll(".d3")
+  .data(<%= display_data %>)
+  .transition()
+  .duration(2000)
+  .style("width", function(d) { return  d + "px"; });
+</script>
+
