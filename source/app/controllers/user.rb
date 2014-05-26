@@ -22,6 +22,7 @@ delete '/logout' do
 end
 
 get '/signup' do
+  @hide_login_form = true
   erb :"/users/new"
 end
 
