@@ -1,27 +1,36 @@
-<a href="/">Home</a>
-
-<% if current_user %>
-<form name='logout' method='post' action='/logout'>
-  <input type='hidden' name='_method' value='delete'>
-  <input type='submit' value='Logout' class="submit_button">
-</form>
-<a href="/user/profile">My Surveys</a>
-<a href="/surveys/new">Create New Survey</a>
-<% elsif !@hide_login_form %>
+<ul id = "navbar">
+  <li class>
+  <a href="/">Home</a>
+  </li>
+  <li id="create">
+    <a href="/signup">Sign Up</a>
+  </li>
+  <% if current_user %>
+  <li>
+  </li>
+  <li>
+    <a href="/user/profile">My Surveys</a>
+  </li>
+  <li>
+  <a href="/surveys/new">Create New Survey</a>
+  </li>
+  <form name='logout' method='post' action='/logout' id = "logout" >
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Logout' class="submit_button">
+  </form>
+  <% elsif !@hide_login_form %>
     <form method="post" action="/sessions/new">
-      <div class="login">
+      <li class = "login">
         <label>email</label>
         <input type="text" name="email" id="email">
-      </div>
-      <div class="login">
+      </li>
+      <li class="login">
         <label>password</label>
         <input type="password" name="password">
-      </div>
-      <div class="login">
-        <input type="submit" value="Submit" id="login_submit" class="submit_button">
-      </div>
-        <div id="create">
-          <a href="/signup">Create Account</a>
-        </div>
+      </li>
+      <li class="login">
+        <input type="submit" value="Log in" id="login_submit" class="submit_button">
+      </li>
     </form>
-<%end%>
+  <%end%>
+</ul>
