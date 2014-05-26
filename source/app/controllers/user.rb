@@ -2,16 +2,18 @@ post '/sessions/new' do
   if User.authenticate(params[:email], params[:password])
     user = User.find_by_email(params[:email])
     session[:user_id] = user.id  #creates session
-    redirect ('/')
+    redirect ('/user/profile')
   else
     redirect ('/')
   end
 end
 
 get '/user/profile' do
-  @surveys_created = current_user.created_surveys
-  @surveys_taken = current_user.taken_surveys
-  erb :'users/profile'
+  if !current_user.nil? #&& !current_user.created_surveys.nil? && !current_user.taken_surveys.nil?
+    @surveys_created = current_user.created_surveys
+    @surveys_taken = current_user.taken_surveys
+    erb :'users/profile'
+  end
 end
 
 delete '/logout' do
@@ -20,12 +22,12 @@ delete '/logout' do
 end
 
 get '/signup' do
-  erb :"/users/new", layout: false
+  erb :"/users/new"
 end
 
 post '/users/new' do
   user = User.create(params[:user])
   session[:user_id] = user.id
-  redirect "/user/profile"
+  redirect "/"
 end
 
