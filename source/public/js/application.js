@@ -16,7 +16,7 @@ $(document).ready(function() {
     console.log(qNum);
     appendObject = $("#questions .question:nth-child(" + (qNum + 1) + ") .question_and_choices");
     console.log(appendObject);
-    appendObject.append('<br><label>choice <input type=\"text\" name=\"choice[' + qNum + '][' + choice_number[qNum] + ']\"></label><br>')
+    appendObject.append('<label>choice <input type=\"text\" name=\"choice[' + qNum + '][' + choice_number[qNum] + ']\"></label><br>')
   })
 
   // var questions = $("#questions")
