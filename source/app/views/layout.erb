@@ -15,14 +15,16 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Survey Gorilla</title>
 </head>
 <body>
   <div class="container">
-    <%= erb :"partials/_navbar" %>
+      <%= erb :"partials/_navbar" %>
     <div id="main">
-      <%= yield %>
-    </div>
-  </div>
+      <section class="content">
+        <%= yield %>
+      </section> <!-- / content -->
+    </div> <!-- / main -->
+  </div> <!-- / container -->
 </body>
 </html>

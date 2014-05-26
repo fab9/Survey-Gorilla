@@ -1,14 +1,15 @@
 <div id="survey_display">
 
-<h3>Surveys</h3>
-<% @surveys.each do |survey| %>
-<span id="survey">
-  <% if current_user && !current_user.taken_surveys.include?(survey) %>
-    <a href="/survey/<%= survey.id %>" ><%= survey.name %></a>
-  <% else %>
-    <%= survey.name %>
-  <%end%>
-</span>
+  <h2>All Surveys</h2>
 
-<%end%>
+  <% @surveys.each do |survey| %>
+  <span id="survey">    </span>
+
+      <% if current_user && !current_user.taken_surveys.include?(survey) %>
+        <ul><li><a href="/survey/<%= survey.id %>" ><%= survey.name %></a></li></ul>
+      <% else %>
+        <ul><li><%= survey.name %></li></ul>
+      <%end%>
+  <%end%>
+
 </div>

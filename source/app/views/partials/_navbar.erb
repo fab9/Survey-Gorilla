@@ -1,36 +1,41 @@
-<ul id = "navbar">
-  <li class>
-  <a href="/">Home</a>
-  </li>
-  <li id="create">
-    <a href="/signup">Sign Up</a>
-  </li>
-  <% if current_user %>
-  <li>
-  </li>
-  <li>
-    <a href="/user/profile">My Surveys</a>
-  </li>
-  <li>
-  <a href="/surveys/new">Create New Survey</a>
-  </li>
-  <form name='logout' method='post' action='/logout' id = "logout" >
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Logout' class="submit_button">
-  </form>
-  <% elsif !@hide_login_form %>
-    <form method="post" action="/sessions/new" id = "login">
-      <li class = "login">
-        <label>email</label>
-        <input type="text" name="email" id="email">
-      </li>
-      <li class="login">
-        <label>password</label>
-        <input type="password" name="password">
-      </li>
-      <li class="login">
-        <input type="submit" value="Log in" id="login_submit" class="submit_button">
-      </li>
-    </form>
-  <%end%>
+<ul class = "navbar">
+  <li id="home"><a href="/">Home</a></li>
+  <!-- <li id="create"><a href="/signup">Sign Up</a></li> -->
 </ul>
+
+  <% if current_user %>
+    <ul class="navbar">
+      <li><a href="/user/profile">My Surveys</a></li>
+      <li><a href="/surveys/new">Create New Survey</a></li>
+    </ul>
+
+
+  <!-- Logout -->
+  <div>
+    <form name='logout' method='post' action='/logout' id = "logout" >
+      <ul class="logout-form">
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out' class="btn btn-logout">
+      </ul>
+    </form>
+  </div>
+
+  <% elsif !@hide_login_form %>
+
+  <!-- Login -->
+    <div class="login-form">
+      <form method="post" action="/sessions/new" id = "login">
+        <ul class="login-form">
+          <div>
+            <li class ="login"><label>Email: </label><input type="text" name="email" id="email"></li>
+          </div>
+          <div>
+            <li class="login"><label>Password: </label><input type="password" name="password"></li>
+          </div>
+            <li class="login"><input type="submit" value="Log in" id="login_submit" class="btn btn-login"><span class="center">or <a href="/signup">Sign Up</a></span></li>
+
+        </ul>
+      </form>
+    </div>
+  <%end%>
+
