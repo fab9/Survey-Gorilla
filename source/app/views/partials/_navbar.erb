@@ -1,6 +1,27 @@
-<div id="sign_in">
+<a href="/">Home</a>
 
-  <a href="/">Home</a>
-</div>
-
-
+<% if current_user %>
+<form name='logout' method='post' action='/logout'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Logout' class="submit_button">
+</form>
+<a href="/user/profile">My Surveys</a>
+<a href="/surveys/new">Create New Survey</a>
+<% elsif !@hide_login_form %>
+    <form method="post" action="/sessions/new">
+      <div class="login">
+        <label>email</label>
+        <input type="text" name="email" id="email">
+      </div>
+      <div class="login">
+        <label>password</label>
+        <input type="password" name="password">
+      </div>
+      <div class="login">
+        <input type="submit" value="Submit" id="login_submit" class="submit_button">
+      </div>
+        <div id="create">
+          <a href="/signup">Create Account</a>
+        </div>
+    </form>
+<%end%>
