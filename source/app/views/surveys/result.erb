@@ -1,4 +1,6 @@
+<h2><%= @survey.name %></h2>
 
+<% if @survey.participations.length > 0 %>
 <meta charset=utf-8 />
   <script src="http://d3js.org/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
 <style type="text/css">
@@ -29,3 +31,6 @@
   .style("width", function(d) { return  d + "px"; });
 </script>
 
+<% else %>
+<p>No results to display</p>
+<%end%>

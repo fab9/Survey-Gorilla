@@ -20,7 +20,9 @@
 <body>
   <div class="container">
     <%= erb :"partials/_navbar" %>
-    <%= yield %>
+    <div id="main">
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>
